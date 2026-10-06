@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply text-gray-800 bg-white;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary-600 text-white font-medium rounded-lg hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-primary-600 text-primary-600 font-medium rounded-lg hover:bg-primary-50 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 transition-all duration-200;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 text-gray-600 font-medium rounded-lg hover:bg-gray-100 focus:outline-none transition-all duration-200;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-card border border-gray-100 overflow-hidden;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 placeholder-gray-400;
+  }
+
+  .label {
+    @apply block text-sm font-medium text-gray-700 mb-1;
+  }
+
+  .badge-green {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-100 text-primary-800;
+  }
+
+  .badge-red {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800;
+  }
+
+  .badge-yellow {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800;
+  }
+
+  .badge-gray {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800;
+  }
+
+  .section-heading {
+    @apply text-3xl font-bold text-herbal-dark;
+  }
+
+  .section-subheading {
+    @apply text-lg text-gray-500 mt-2;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #22c55e;
+  border-radius: 3px;
+}
+
+/* Product image */
+.product-image {
+  @apply w-full h-48 object-cover;
+}
+
+/* Loading spinner */
+.spinner {
+  @apply animate-spin rounded-full border-2 border-gray-200 border-t-primary-600;
+}
+
+/* Hide scrollbar utility (used by AutoScrollRow) */
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── react-calendar overrides ───────────────────────────────────────────── */
+.booking-calendar .react-calendar {
+  width: 100%;
+  border: none;
+  font-family: 'Inter', system-ui, sans-serif;
+  background: transparent;
+}
+.booking-calendar .react-calendar__navigation {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  gap: 0.25rem;
+}
+.booking-calendar .react-calendar__navigation button {
+  min-width: 44px;
+  min-height: 44px;
+  background: transparent;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.625rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #1a3c34;
+  cursor: pointer;
+}
+.booking-calendar .react-calendar__navigation__label {
+  flex: 1;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a3c34;
+  border: none !important;
+}
+.booking-calendar .react-calendar__navigation button:hover:not(:disabled) {
+  background: #f0fdf4;
+  border-color: #86efac;
+}
+.booking-calendar .react-calendar__navigation button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+.booking-calendar .react-calendar__month-view__weekdays {
+  text-align: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #f3f4f6;
+  margin-bottom: 0.5rem;
+}
+.booking-calendar .react-calendar__month-view__weekdays abbr {
+  text-decoration: none;
+}
+/* Hide the default tile text — we render our own via tileContent */
+.booking-calendar .react-calendar__tile {
+  background: transparent;
+  border: none;
+  padding: 4px 2px;
+  cursor: default;
+  overflow: visible;
+}
+.booking-calendar .react-calendar__tile abbr {
+  display: none;
+}
+.booking-calendar .react-calendar__tile:disabled {
+  cursor: not-allowed;
+}
+/* Remove react-calendar's own active/hover highlights */
+.booking-calendar .react-calendar__tile--active,
+.booking-calendar .react-calendar__tile--active:enabled:hover,
+.booking-calendar .react-calendar__tile--active:enabled:focus,
+.booking-calendar .react-calendar__tile:enabled:hover,
+.booking-calendar .react-calendar__tile:enabled:focus {
+  background: transparent !important;
+}
+.booking-calendar .react-calendar__month-view__days__day--neighboringMonth {
+  opacity: 0.35;
+}
